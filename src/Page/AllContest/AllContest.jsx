@@ -1,11 +1,12 @@
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import Loading from "../Loading/Loading";
 import useContest from "./../../Hooks/useContest";
 import Contesttab from "./ContestTab";
 
 
 const AllContest = () => {
-  const categories = ["business", "medical", "article", "gaming"];
+  // const categories = ["business", "medical", "article", "gaming"];
   const [contest, loading] = useContest();
   const business = contest.filter((item) => item.tags === "business");
   const medical = contest.filter((item) => item.tags === "medical");
@@ -22,7 +23,10 @@ const AllContest = () => {
             <Tab role="tab" className='tab text-xl text-[#0776a6]'>gaming</Tab> 
           </TabList>
 
-          <TabPanel>
+          {
+            loading? <Loading></Loading> :
+            <>
+            <TabPanel>
             <Contesttab loading={loading} item={business}></Contesttab>
           </TabPanel>
           <TabPanel>
@@ -34,6 +38,8 @@ const AllContest = () => {
           <TabPanel>
             <Contesttab loading={loading} item={gaming}></Contesttab>
           </TabPanel>
+          </>
+          }
         </Tabs>
       </div>
     </div>

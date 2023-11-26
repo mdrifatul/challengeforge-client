@@ -1,5 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../Layout/Dashboard/Dashboard";
 import Main from "../Layout/Main";
+import AllUsers from "../Page/Dashboard/AllUsers/AllUsers";
+import UserHome from "../Page/Dashboard/UserHome/UserHome";
 import Details from "../Page/Details/Details";
 import Error from "../Page/Error/Error";
 import Home from "../Page/Home/Home";
@@ -25,10 +28,6 @@ export const Router = createBrowserRouter([
         path:'/details/:id',
         element: <Details></Details>,
       },
-      // {
-      //   path:'/contest/:tags',
-      //   element: <AllContest></AllContest>,
-      // },
       {
         path:'/signup',
         element: <Signup></Signup>
@@ -36,6 +35,22 @@ export const Router = createBrowserRouter([
       {
         path:'/login',
         element: <Login></Login>
+      }
+    ]
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'userhome',
+        element: <UserHome></UserHome>
+      },
+
+      // Admin route
+      {
+        path: 'alluser',
+        element: <AllUsers></AllUsers>
       }
     ]
   }

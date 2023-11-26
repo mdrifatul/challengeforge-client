@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Jessica Williams",
+    "image": "https://i.ibb.co/2vrgjtt/ella-don-Pk6-Y3y-VVNz4-unsplash.jpg",
+    "contestname": "Gaming Hackathon",
+    "description": "Jessica Williams presents the Ultimate Gaming Challenge! Compete against top gamers and show your skills in thrilling multiplayer tournaments across diverse game genres."
+  },
+  {
+    "name": "Maxwell Turner",
+    "image": "https://i.ibb.co/1Lkt1ms/christian-buehner-DIt-Ylc26z-VI-unsplash.jpg",
+    "contestname": "article Marathon",
+    "description": "Join Maxwell Turner's Literary Excellence Competition! Embrace your creativity and write captivating articles, essays, or stories to win recognition."
+  },
+  {
+    "name": "Sophia Patel",
+    "image": "https://i.ibb.co/ygkJqvj/austin-distel-7uo-Mmz-Pd2-JA-unsplash.jpg",
+    "contestname": "Entrepreneurship Challenge",
+    "description": "Sophia Patel hosts the Entrepreneurship Venture Challenge! Share your innovative business ideas and compete for investment opportunities."
+  }
+]

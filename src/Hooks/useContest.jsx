@@ -4,7 +4,7 @@ import useaxiosPublic from "./useaxiosPublic";
 const useContest = () => {
   const axiosPublic = useaxiosPublic();
 
-  const {data: contest = [], isPending: loading, refetch} = useQuery({
+  const {data: contest = [], isLoading: loading, refetch} = useQuery({
     queryKey: ['menu'], 
     queryFn: async() =>{
         const res = await axiosPublic.get('/contest');

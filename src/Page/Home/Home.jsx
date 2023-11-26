@@ -1,11 +1,11 @@
 import Banner from "../Banner/Banner";
-import PopularContest from './../PopularContest/PopularContest';
+import BestCreator from './../BestCreator/BestCreator';
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <PopularContest></PopularContest>
+      <BestCreator></BestCreator>
     </div>
   );
 };
