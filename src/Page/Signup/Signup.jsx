@@ -29,6 +29,7 @@ const Signup = () => {
               name: data.name,
               email: data.email,
               image: data.PhotoURL,
+              role: "User"
             };
             axiosPublic.post("/users", userInfo)
             .then((res) => {
@@ -62,7 +63,8 @@ const Signup = () => {
       const googleuserInfo = {
         name : result.user?.displayName,
         email: result.user?.email,
-        image: result.user?.PhotoURL
+        image: result.user?.photoURL,
+        role: "User"
       }
       axiosPublic.post('/users',googleuserInfo)
       .then(res =>{

@@ -104,19 +104,19 @@ const Navbar = () => {
             </label>
             <div
                 tabIndex={0}
-                className="mt-10 dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                className="mt-10 dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 "
               >
-                <p className=" px-4 py-2 hover:bg-base-300 rounded-lg">{user.email}</p>
+                <p className="px-1 py-2 hover:bg-base-300 rounded-lg">{user.email}</p>
                 <NavLink
                   to="/dashboard"
-                  className="px-4 py-2 hover:bg-base-300 rounded-lg"
+                  className="px-1 py-2 hover:bg-base-300 rounded-lg"
                 >
                   Dashboard
                 </NavLink>
                 
                 <NavLink
                   to="/"
-                  className="px-4 py-2 hover:bg-base-300 rounded-lg"
+                  className="px-1 py-2 hover:bg-base-300 rounded-lg"
                 >
                                         
                 <button

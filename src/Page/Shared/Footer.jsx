@@ -28,7 +28,7 @@ const Footer = () => {
         </nav>
       </footer>
         <p className="my-4 text-gray-600 text-center">
-          Copyright © 2023 Crave | Powered by Crave.
+          Copyright © 2023 ForgeChallenge | Powered by ForgeChallenge.
         </p>
       </div>
   );

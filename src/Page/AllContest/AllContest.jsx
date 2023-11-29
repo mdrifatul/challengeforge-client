@@ -2,8 +2,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Loading from "../Loading/Loading";
 import useContest from "./../../Hooks/useContest";
-import Contesttab from "./ContestTab";
-
+import ContestTabs from "./ContestTabs";
 
 const AllContest = () => {
   // const categories = ["business", "medical", "article", "gaming"];
@@ -27,16 +26,16 @@ const AllContest = () => {
             loading? <Loading></Loading> :
             <>
             <TabPanel>
-            <Contesttab loading={loading} item={business}></Contesttab>
+            <ContestTabs loading={loading} key={business._id} item={business}></ContestTabs>
           </TabPanel>
           <TabPanel>
-            <Contesttab loading={loading} item={medical}></Contesttab>
+            <ContestTabs loading={loading} key={medical._id} item={medical}></ContestTabs>
           </TabPanel>
           <TabPanel>
-            <Contesttab loading={loading} item={article}></Contesttab>
+            <ContestTabs loading={loading} key={medical._id} item={article}></ContestTabs>
           </TabPanel>
           <TabPanel>
-            <Contesttab loading={loading} item={gaming}></Contesttab>
+            <ContestTabs loading={loading} key={medical._id} item={gaming}></ContestTabs>
           </TabPanel>
           </>
           }

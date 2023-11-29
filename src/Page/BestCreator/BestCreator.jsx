@@ -46,8 +46,8 @@ const BestCreator = () => {
         {
           creator.map(item => (
             <>
-            <SwiperSlide >
-          <div key={item?._id} className='h-80 '>
+            <SwiperSlide key={item?._id}>
+          <div className='h-80 '>
           <img className='h-40 w-full absolute' src={item?.image} />
           <div className='px-3'>
           <p className='relative top-40 text-gray-900 font-bold text-lg'>{item?.name}</p>
@@ -59,7 +59,7 @@ const BestCreator = () => {
             </>
           ))
         }
-      
+ 
       </Swiper>
     </div>
   );

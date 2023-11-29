@@ -1,17 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "./useAuth";
 import useaxiosPublic from "./useaxiosPublic";
 
-const useContest = () => {
+const useContestByEmail = () => {
   const axiosPublic = useaxiosPublic();
+  const {user} = useAuth();
 
   const {data: contest = [], isLoading: loading, refetch} = useQuery({
-    queryKey: ['contestAll'], 
+    queryKey: ['contest'], 
     queryFn: async() =>{
-        const res = await axiosPublic.get('/contest');
-        return res.data
+        const res = await axiosPublic.get(`/contest?email=${user?.email}`);
+        return res.data;
     }
 })
   return [contest, loading, refetch]
 };
 
-export default useContest;
+export default useContestByEmail;

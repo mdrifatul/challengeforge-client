@@ -5,14 +5,13 @@ import { NavLink } from "react-router-dom";
 
 const Userdash = () => {
   return (
-    <>
-    <li>
-    <NavLink to="/dashboard/userhome" className="text-lg text-white">
+    <><li>
+    <NavLink to="/dashboard/participate" className="text-lg text-white">
     <BsFillPersonVcardFill />
       Participated Contest</NavLink>
     </li>
     <li>
-    <NavLink to="/dashboard/winncontent" className="text-lg text-white">
+    <NavLink to="/dashboard/wincontest" className="text-lg text-white">
     <GiTrophyCup />
       Winning Contest</NavLink>
     </li>

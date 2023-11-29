@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import useaxiosPublic from "../../Hooks/useaxiosPublic";
@@ -10,6 +10,8 @@ import Container from "../../component/Container/Container";
 const Login = () => {
   const {logIn, signInWithGoogle} = useAuth();
   const navigate = useNavigate(); 
+  const location = useLocation();
+  console.log(location);
   const [loginError, setLoginError] = useState("");
   const axiosPublic = useaxiosPublic();
 
@@ -48,7 +50,8 @@ const Login = () => {
       const googleuserInfo = {
         name : result.user?.displayName,
         email: result.user?.email,
-        image: result.user?.PhotoURL
+        image: result.user?.photoURL,
+        role: "User"
       }
       axiosPublic.post('/users',googleuserInfo)
       .then(res =>{
@@ -61,7 +64,7 @@ const Login = () => {
           timer: 1500,
         });
       })
-      navigate('/')  
+      navigate(location?.state ? location.state : '/')
     })
   .catch(error =>{
     console.error(error);

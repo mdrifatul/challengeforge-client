@@ -4,7 +4,7 @@ import useaxiosPublic from "../Hooks/useaxiosPublic";
 import auth from './../Firebase/firebase.config';
 
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider() 
 
 const AuthProvider = ({children}) => {
@@ -44,8 +44,8 @@ const AuthProvider = ({children}) => {
         const Info = {email: currentUser.email};
         axiosPublic.post('/jwt', Info)
         .then(res => {
-          if(res.data.token) {
-            localStorage.setItem('access-token', res.data.token)
+          if(res.data?.token) {
+            localStorage.setItem('access-token', res.data?.token)
             setLoading(false)
           }
         })
@@ -60,9 +60,9 @@ const AuthProvider = ({children}) => {
   },[axiosPublic])
 
   const authInfo = {
-    user,
     loading,
     createUser,
+    user,
     logIn,
     logOut,
     signInWithGoogle,

@@ -50,7 +50,7 @@ const AllUsers = () => {
     const userrole = {
       role : role
     }
-    axiosSecure.put(`/users/admin/${user?._id}`,userrole).then((res) => {
+    axiosSecure.put(`/users/${user?.email}`,userrole).then((res) => {
       if (res.data.modifiedCount > 0) {
         refetch();
         Swal.fire({
@@ -93,6 +93,7 @@ const AllUsers = () => {
                 <td>{user?.role}</td>
                 <td>
                   <select onChange={(e)=>handleUpdaterole(e.target.value,user)}  className="select w-fit">
+                    <option disabled selected>Change</option>
                     <option value='User'>User</option>
                     <option value='Creator'>Creator</option>
                     <option value='Admin'>Admin</option>

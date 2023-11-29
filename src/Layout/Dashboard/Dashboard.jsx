@@ -1,19 +1,22 @@
 import { IoArrowBackOutline } from "react-icons/io5";
 import { NavLink, Outlet } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
+import useRole from "../../Hooks/useRole";
 import Adminlayout from './Adminlayout';
+import Creator from './Creator';
+import Userdash from './userdash';
 
 const Dashboard = () => {
-  const {user} = useAuth();
+  const [role, isLoading] = useRole();
+  const roles = role?.role
   return (
+    <>
     <div className="grid grid-cols-12 ">
-      <div className="col-span-3 min-h-screen bg-[#0776a6] p-5 flex flex-col justify-between">
-        <ul className="menu">
-          {/* <Userdash></Userdash> */}
-          {/* <Creator></Creator> */}
-          <Adminlayout></Adminlayout> 
-        </ul>
-
+      <div className="col-span-3 min-h-screen bg-[#0776a6] p-5 flex flex-col">
+          <ul className="menu">
+          {roles ==='User' && <Userdash></Userdash>}
+          {roles  === 'Creator' && <Creator></Creator>}
+          {roles === 'Admin' && <Adminlayout></Adminlayout>}
+          </ul>                     
         <div >      
           <ul className="menu">
             <li>
@@ -24,10 +27,11 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
-      <div className="col-span-9 px-5  ">
+      <div className="col-span-9 px-5  ">        
         <Outlet></Outlet>
       </div>
     </div>
+    </>
   );
 };
 
