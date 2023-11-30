@@ -13,32 +13,38 @@ const ManageContent = () => {
   const [page, setPage] = useState(1)
   const limit = 10;
 
-
   const {refetch,data: contest ={result:[]}, isLoading: loading} = useQuery({
-    queryKey: ['contestAll'], 
+    queryKey: ['contestAll',page], 
     queryFn: async() =>{
         const res = await axiosPublic.get(`/contest?page=${page}&limit=${limit}`);
         return res.data
     }
 })
 const totalcontest = contest?.total
-console.log(totalcontest);
-// console.log(contest?.result);
+
+
 
   const numberOfpage = Math.ceil(totalcontest/limit)
   const totalpage = Array.from({length: numberOfpage}, (_, i) => i +1);
 
+
+  const handlePage = (item) => {
+    setPage(item);
+    refetch({ page: item });
+   };
+
+
    const handlePrevious = () =>{
-    
      if(page > 1 ){ 
       setPage(page -1);
-      console.log('prev',page-1);
+      refetch({ page: page })
+      console.log('prev',page);
      }
    }
    const handleNext = () =>{
-    
      if(page < totalpage.length){
        setPage(page +1);
+       refetch({ page: page })
        console.log("next",page + 1);
     }
    }
@@ -146,7 +152,7 @@ console.log(totalcontest);
         <button onClick={handlePrevious} className="join-item btn text-[#0776a6]">«</button>
         {
           totalpage.map(item =>
-          <button key={item} onClick={() => setPage(item)} className={`${item === page ? "join-item btn text-white  bg-[#0776a6] w-10 ": "join-item btn-ghost w-10"}`}>{item}</button>
+            <button key={item} onClick={() => handlePage(item)} className={`${item === page ? "join-item btn text-white bg-[#0776a6] w-10 ": "join-item btn-ghost w-10"}`}>{item}</button>
           )     
         } 
 
