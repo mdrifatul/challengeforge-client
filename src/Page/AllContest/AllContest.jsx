@@ -6,7 +6,9 @@ import ContestTabs from "./ContestTabs";
 const AllContest = () => {
   // const categories = ["business", "medical", "article", "gaming"];
   const [contest, loading] = useContest();
-  const acceptedContest = contest.filter((item) => item.status === "accepted")
+  const allcontest = contest?.result
+  console.log(allcontest);
+  const acceptedContest = allcontest.filter((item) => item.status === "accepted")
   const business = acceptedContest.filter((item) => item.tags === "business");
   const medical = acceptedContest.filter((item) => item.tags === "medical");
   const article = acceptedContest.filter((item) => item.tags === "article");

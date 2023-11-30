@@ -1,12 +1,50 @@
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import useContest from '../../../Hooks/useContest';
+import useaxiosPublic from '../../../Hooks/useaxiosPublic';
 import Loading from './../../Loading/Loading';
 
 const ManageContent = () => {
-  const [contest, loading, refetch]= useContest();
+  // const [contest, loading, refetch]= useContest();
   const axiosSecure = useAxiosSecure();
+  const axiosPublic = useaxiosPublic();
+  const [page, setPage] = useState(1)
+  const limit = 10;
+
+
+  const {refetch,data: contest ={result:[]}, isLoading: loading} = useQuery({
+    queryKey: ['contestAll'], 
+    queryFn: async() =>{
+        const res = await axiosPublic.get(`/contest?page=${page}&limit=${limit}`);
+        return res.data
+    }
+})
+const totalcontest = contest?.total
+console.log(totalcontest);
+// console.log(contest?.result);
+
+  const numberOfpage = Math.ceil(totalcontest/limit)
+  const totalpage = Array.from({length: numberOfpage}, (_, i) => i +1);
+
+   const handlePrevious = () =>{
+    
+     if(page > 1 ){ 
+      setPage(page -1);
+      console.log('prev',page-1);
+     }
+   }
+   const handleNext = () =>{
+    
+     if(page < totalpage.length){
+       setPage(page +1);
+       console.log("next",page + 1);
+    }
+   }
+
+
+
 
   const handleDelete = (item,) => {
     console.log(item);
@@ -72,7 +110,7 @@ const ManageContent = () => {
             </thead>
             <tbody>
               {
-              contest.map( (item,index) =>(
+              contest?.result.map( (item,index) =>(
               <tr key={item?._id}>
                 <th>{index + 1}</th>
                 <td>{item?.name}</td>
@@ -103,6 +141,18 @@ const ManageContent = () => {
             </tbody>
           </table>}
         </div>
+        <div className="text-center mt-10 mb-20">
+      <div className="join border border-[#0776a6]">
+        <button onClick={handlePrevious} className="join-item btn text-[#0776a6]">«</button>
+        {
+          totalpage.map(item =>
+          <button key={item} onClick={() => setPage(item)} className={`${item === page ? "join-item btn text-white  bg-[#0776a6] w-10 ": "join-item btn-ghost w-10"}`}>{item}</button>
+          )     
+        } 
+
+        <button onClick={handleNext} className="join-item btn text-[#0776a6]">»</button>
+      </div>
+      </div>
       </div>
     </div>
   );

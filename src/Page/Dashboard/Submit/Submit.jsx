@@ -1,10 +1,11 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useCreatorEmail from "../../../Hooks/useCreatorEmail";
+import Loading from "../../Loading/Loading";
 
 const Submit = () => {
   const axiosSecure = useAxiosSecure();
-  const [submitedCreator, refetch] = useCreatorEmail();
+  const [submitedCreator, refetch,loading] = useCreatorEmail();
 
   const handlemakeWinner = (item) => {
     Swal.fire({
@@ -45,7 +46,7 @@ const Submit = () => {
     <div>
       <div>
         <div className="overflow-x-auto">
-          <table className="table table-zebra">
+          {loading? <Loading></Loading>:<table className="table table-zebra">
             <thead>
               <tr>
                 <th></th>
@@ -102,7 +103,7 @@ const Submit = () => {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table>}
         </div>
       </div>
     </div>

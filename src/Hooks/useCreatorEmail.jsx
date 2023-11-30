@@ -7,7 +7,7 @@ const useCreatorEmail = () => {
   const {user} = useAuth();
 
 
-  const {data :submitedCreator=[],refetch} = useQuery({
+  const {data :submitedCreator=[],refetch,isLoading:loading} = useQuery({
     queryKey: ['submitedCreator'], 
     queryFn: async() =>{
         const res = await axiosSecure.get(`/submitted/${user?.email}`);
@@ -15,7 +15,7 @@ const useCreatorEmail = () => {
     }
   })
 
-  return [submitedCreator, refetch]
+  return [submitedCreator, refetch,loading]
 };
 
 export default useCreatorEmail;

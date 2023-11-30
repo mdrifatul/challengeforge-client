@@ -14,11 +14,13 @@ const PopularContest = ({tags}) => {
       return res.data;
     },
   });
+  const contests = contest?.result
+  console.log(contest);
   return (
     <div>
       {/* <SectionTitle heading={"popular contest"}></SectionTitle> */}
       {loading ? <Loading></Loading>:<div className="grid lg:grid-cols-2 gap-6 w-10/12 md:w-11/12 mx-auto my-20">
-        {contest.slice(0, 6).map((item) => <ContestCard key={item?._id} item={item}></ContestCard>)}
+        {contests.slice(0, 6).map((item) => <ContestCard key={item?._id} item={item}></ContestCard>)}
       </div>}
     </div>
   );

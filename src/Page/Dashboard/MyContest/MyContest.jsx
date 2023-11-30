@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useContestByEmail from "../../../Hooks/useContestByEmail";
+import Loading from "../../Loading/Loading";
 
 const MyContest = () => {
   const [contest,loading, refetch] = useContestByEmail();
   const axiosSecure = useAxiosSecure();
+
+  const contests = contest?.result
+  console.log(contest);
+  console.log(contest?.result);
 
   const handleDelete = (item) => {
     Swal.fire({
@@ -45,7 +50,7 @@ const MyContest = () => {
       </div>
       <div>
         <div className="overflow-x-auto">
-          <table className="table table-zebra">
+          {loading? <Loading></Loading>:<table className="table table-zebra">
             <thead>
               <tr>
                 <th></th>
@@ -58,7 +63,7 @@ const MyContest = () => {
               </tr>
             </thead>
             <tbody>
-              {contest.map((item, index) => (
+              {contests.map((item, index) => (
                 <tr key={item?._id}>
                   <td>{index + 1}</td>
                   <td>
@@ -132,7 +137,7 @@ const MyContest = () => {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table>}
         </div>
       </div>
     </div>
