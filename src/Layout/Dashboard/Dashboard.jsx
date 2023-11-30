@@ -6,11 +6,11 @@ import Creator from './Creator';
 import Userdash from './userdash';
 
 const Dashboard = () => {
-  const [role, isLoading] = useRole();
+  const [role] = useRole();
   const roles = role?.role
   return (
     <>
-    <div className="grid grid-cols-12 ">
+    <div className="grid grid-cols-12">
       <div className="col-span-3 min-h-screen bg-[#0776a6] p-5 flex flex-col">
           <ul className="menu">
           {roles ==='User' && <Userdash></Userdash>}

@@ -2,20 +2,20 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxiosSecure";
 
-const useSubmit = () => {
+const useCreatorEmail = () => {
   const axiosSecure = useAxiosSecure();
   const {user} = useAuth();
 
 
-  const {data :submited=[],refetch} = useQuery({
-    queryKey: ['submited'], 
+  const {data :submitedCreator=[],refetch} = useQuery({
+    queryKey: ['submitedCreator'], 
     queryFn: async() =>{
-        const res = await axiosSecure.get(`/submitted?email=${user?.email}`);
+        const res = await axiosSecure.get(`/submitted/${user?.email}`);
         return res.data;
     }
   })
 
-  return [submited, refetch]
+  return [submitedCreator, refetch]
 };
 
-export default useSubmit;
+export default useCreatorEmail;

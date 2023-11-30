@@ -4,15 +4,8 @@ import SectionTitle from './../../Shared/SectionTitle';
 
 const Participate = () => {
   const [payments] = usePayments()
-  console.log(payments);
 
-  const currentDate = new Date();
-  const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-  const date = String(currentDate.getDate()).padStart(2, '0');
-
-  const presendDate = `${year}-${month}-${date}`;
-  console.log(presendDate);
+  const presendDate = new Date().toLocaleDateString();
 
 
   return (
@@ -38,7 +31,7 @@ const Participate = () => {
           <td>{item?.contestName}</td>
           <td>{item?.deadline}</td>
           <td>${item?.prizemoney}</td>
-           {presendDate=== item?.deadline?<td><button className="btn btn-sm " disabled="disabled">Participate</button></td>:<td><Link to= {`/dashboard/participatecontest/${item?.contestId}`} ><button className="btn btn-sm bg-[#ff8147f0] text-white">Participate</button></Link></td>}
+           {presendDate>item?.deadline?<td><button className="btn btn-sm " disabled="disabled">Participate</button></td>:<td><Link to= {`/dashboard/participatecontest/${item?.contestId}`} ><button className="btn btn-sm bg-[#ff8147f0] text-white">Participate</button></Link></td>}
         </tr>))}
       </tbody>
     </table>

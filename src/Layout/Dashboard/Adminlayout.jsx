@@ -1,5 +1,4 @@
 import { FaUserCog } from 'react-icons/fa';
-import { IoMdPerson } from 'react-icons/io';
 import { MdManageSearch } from 'react-icons/md';
 import { NavLink } from "react-router-dom";
 
@@ -15,11 +14,6 @@ const Adminlayout = () => {
     <NavLink to="/dashboard/managecontent" className="text-lg text-white">
       <MdManageSearch/>
       Manage Contest</NavLink>
-    </li>
-    <li>
-    <NavLink to="/dashboard/profile" className="text-lg text-white">
-    <IoMdPerson />
-      My Profile</NavLink>
     </li>
     </>
   );

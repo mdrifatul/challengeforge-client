@@ -6,7 +6,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useContestByEmail from "../../../Hooks/useContestByEmail";
 
 const MyContest = () => {
-  const [contest, refetch] = useContestByEmail();
+  const [contest,loading, refetch] = useContestByEmail();
   const axiosSecure = useAxiosSecure();
 
   const handleDelete = (item) => {

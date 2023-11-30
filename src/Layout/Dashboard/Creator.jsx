@@ -1,6 +1,5 @@
 import { BiSolidCommentAdd } from "react-icons/bi";
 import { GiAchievement } from "react-icons/gi";
-import { IoMdPerson } from "react-icons/io";
 import { MdOutlineLibraryAddCheck } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
@@ -21,11 +20,6 @@ const Creator = () => {
     <NavLink to="/dashboard/submit" className="text-lg text-white">
       <MdOutlineLibraryAddCheck/>
       Contest Submitted</NavLink>
-    </li>
-    <li>
-    <NavLink to="/dashboard/profile" className="text-lg text-white">
-    <IoMdPerson />
-      My Profile</NavLink>
     </li>
     </>
   );

@@ -1,13 +1,12 @@
 import { FaTrash } from 'react-icons/fa';
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import useContest from "../../../Hooks/useContest";
+import useContest from '../../../Hooks/useContest';
+import Loading from './../../Loading/Loading';
 
 const ManageContent = () => {
-  const [contest,refetch,] = useContest();
+  const [contest, loading, refetch]= useContest();
   const axiosSecure = useAxiosSecure();
-  console.log(contest);
-
 
   const handleDelete = (item,) => {
     console.log(item);
@@ -37,9 +36,10 @@ const ManageContent = () => {
   };
 
   const handleMakeAdmin = (item) =>{
+    console.log(item);
     const acceptContest = {
       ...item,
-      status: 'Accepted'
+      status: 'accepted'
     }
     axiosSecure.patch(`/contest/${item?._id}`,acceptContest)
     .then(res =>{
@@ -60,7 +60,7 @@ const ManageContent = () => {
     <div>
       <div>
         <div className="overflow-x-auto">
-          <table className="table table-zebra">
+          {loading? <Loading></Loading>:<table className="table table-zebra">
             <thead>
               <tr>
                 <th></th>
@@ -101,7 +101,7 @@ const ManageContent = () => {
                 </td>
               </tr>))}
             </tbody>
-          </table>
+          </table>}
         </div>
       </div>
     </div>

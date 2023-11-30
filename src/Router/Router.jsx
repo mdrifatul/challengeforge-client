@@ -48,7 +48,7 @@ export const Router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path:'/payment',
+        path:'/payment/:id',
         element: <Payment></Payment>
       },
     ]
@@ -64,7 +64,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: 'profile',
-        element: <Profile></Profile>
+        element:<Profile></Profile>
       },
       {
         path: 'updateprofile',
@@ -106,7 +106,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: 'managecontent',
-        element: <ManageContent></ManageContent>
+        element: <PrivateRoute><ManageContent></ManageContent></PrivateRoute>
       }
     ]
   }

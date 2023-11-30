@@ -34,6 +34,9 @@ const ParticipateContest = () => {
       email: user?.email,
       creatorEmail:participate?.creatorEmail,
       contestName:participate?.contestName,
+      contestId:participate?.contestId,
+      prizemoney: participate?.prizemoney,
+      transactionId:participate?.transactionId,
       result: 'participator'
     }
     axiosSecure.post('/submitted',task)
