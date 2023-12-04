@@ -4,9 +4,9 @@ import winner3 from "./../../assets/winner3.jpg";
 
 const Advertise = () => {
   return (
-    <div>
+    <div data-aos="zoom-in-up">
       <div
-        className="hero min-h-screen"
+        className="hero min-h-screen w-full"
         style={{
           backgroundImage:
             "url(https://i.ibb.co/QDvrx0f/16738212-SL-012421-39970-08.jpg)",

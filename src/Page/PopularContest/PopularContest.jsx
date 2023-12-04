@@ -17,8 +17,8 @@ const PopularContest = ({tags}) => {
   const contests = contest?.result
   console.log(contest);
   return (
-    <div>
-      {loading ? <Loading></Loading>:<div className="grid lg:grid-cols-2 gap-6 w-10/12 md:w-11/12 mx-auto my-20">
+    <div className=" mx-auto">
+      {loading ? <Loading></Loading>:<div className="grid lg:grid-cols-2 gap-4 w-10/12 md:w-11/12 mx-auto my-20">
         {contests.slice(0, 6).map((item) => <ContestCard key={item?._id} item={item}></ContestCard>)}
       </div>}
     </div>

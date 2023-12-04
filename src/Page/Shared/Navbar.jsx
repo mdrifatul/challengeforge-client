@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar w-11/12 mx-auto justify-between">
+    <div data-aos="fade-down" className="navbar w-11/12 mx-auto justify-between">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

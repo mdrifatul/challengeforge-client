@@ -5,7 +5,6 @@ import logo from '../../assets/icon.png';
 
 const Footer = () => {
   return (
-    // <div data-aos="fade-up">
     <div data-aos="fade-up">
     <footer className="footer p-10 text-neutral-content md:flex justify-around md:px-20 lg:px-36 border-t border-[#8dc2d9] ">
         <nav>

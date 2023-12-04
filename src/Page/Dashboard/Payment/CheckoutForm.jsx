@@ -23,7 +23,7 @@ const CheckoutForm = () => {
       return res.data
     }
   })
-  const {_id,name,image,email,contestprice,deadline,prizemoney,attempted} = payment
+  const {_id,name,image,email,contestprice,deadline,prizemoney,attempted,participants} = payment
 
 
   const [error, setError] = useState("");
@@ -110,14 +110,14 @@ const CheckoutForm = () => {
         const res = await axiosSecure.post("/payments", payment);
         console.log("payment saved", res.data);
         refetch();
-        if (res.data?.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Payment Successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          if (res.data?.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Payment Successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           navigate("/dashboard/participate");
         }
       }

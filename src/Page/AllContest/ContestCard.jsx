@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ContestCard = ({item}) => {
   const {_id,name,image,attempted,description} = item
   return (
-    <div>
+    <div data-aos="fade-up" >
       <div className="card card-compact shadow-xl flex md:flex-row h-96 md:h-48 rounded-none">
         <figure>
           <img
