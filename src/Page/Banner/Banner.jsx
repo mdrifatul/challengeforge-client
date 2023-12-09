@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import PopularContest from './../PopularContest/PopularContest';
+import PopularContest from '../PopularContest/PopularContest';
 const Banner = () => {
   const [search, setSearch] = useState('');
   const [tags, setTags] = useState('');
