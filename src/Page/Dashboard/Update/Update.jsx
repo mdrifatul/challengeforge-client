@@ -37,10 +37,10 @@ const Update = () => {
         instruction: data.instruction,
         status: 'pandig'
       } 
-      console.log(updateField);
+      // console.log(updateField);
       const contestPost = await axiosSecure.patch(`/contest/${id}`, updateField)
-      console.log(contestPost.data);
-      if(contestPost.data.modifiedCount){
+      // console.log(contestPost.data);
+      if(contestPost.data){
         Swal.fire({
           position: "top",
           icon: "success",

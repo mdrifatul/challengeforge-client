@@ -27,7 +27,7 @@ const MyContest = () => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/contest/${item?._id}`).then((res) => {
           console.log(res.data);
-          if (res.data.deletedCount > 0) {
+          if (res.data) {
             refetch();
             Swal.fire({
               title: "Deleted!",

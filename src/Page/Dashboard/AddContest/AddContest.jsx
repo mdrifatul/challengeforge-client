@@ -13,6 +13,7 @@ const AddContest = () => {
   const axiosPublic = useaxiosPublic()
   const axiosSecure = useAxiosSecure()
   const {user} = useAuth()
+  console.log(user?.email);
 
   const onSubmit = async(data) => {
     const imageFile = {image: data.image[0]}
@@ -34,11 +35,10 @@ const AddContest = () => {
         email: user?.email,
         status: 'panding' 
       } 
-      console.log(contestField);
+      // console.log(contestField);
       const contestPost = await axiosSecure.post('/contest', contestField)
       console.log(contestPost.data);
-      if(contestPost.data.insertedId){
-        reset();
+      if(contestPost.data){
         Swal.fire({
           position: "top",
           icon: "success",
@@ -46,6 +46,7 @@ const AddContest = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        reset();
       }
     }
   };

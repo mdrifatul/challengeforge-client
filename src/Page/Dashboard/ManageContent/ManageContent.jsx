@@ -65,7 +65,7 @@ const totalcontest = contest?.total
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/contest/${item?._id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
+          if (res.data) {
             Swal.fire({
               title: "Deleted!",
               text: "item has been deleted.",
@@ -87,7 +87,7 @@ const totalcontest = contest?.total
     }
     axiosSecure.patch(`/contest/${item?._id}`,acceptContest)
     .then(res =>{
-      if(res.data.modifiedCount >0) {
+      if(res.data) {
         refetch();
         Swal.fire({
           position: "top",
