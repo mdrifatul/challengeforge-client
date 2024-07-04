@@ -1,9 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import useaxiosPublic from "../../Hooks/useaxiosPublic";
 import ContestCard from "../AllContest/ContestCard";
 import Loading from "../Loading/Loading";
 
-const PopularContest = ({tags}) => {
+const PopularContest = () => {
+
+  const [search, setSearch] = useState('');
+  const [tags, setTags] = useState('');
+
   const axiosPublic = useaxiosPublic();
   const { data: contest = [], isPending: loading } = useQuery({
     queryKey: ["contest",tags],
@@ -15,10 +20,20 @@ const PopularContest = ({tags}) => {
     },
   });
   const contests = contest?.result
-  console.log(contest);
+
   return (
     <div className=" mx-auto">
-      {loading ? <Loading></Loading>:<div className="grid lg:grid-cols-2 gap-4 w-10/12 md:w-11/12 mx-auto my-20">
+      <div className="flex justify-center items-center">
+        {/* <div className="md:w-8/12 join mt-12 mx-auto h-20 bg-cover bg-top flex justify-center items-center bg-[url('../../../dist/assets/bgShape.jpg')]"> */}
+        <img src="../../../dist/assets/bgShape.jpg" className="h-24 lg:w-7/12 md:w-9/12 opacity-50" alt="" />
+        <div className="absolute w-10/12 md:w-6/12 join flex justify-center mx-auto ">
+          <input onChange={(e) =>setSearch(e.target.value)} className="input input-bordered join-item w-96" placeholder="Find Your Contest"/>
+          <button onClick={()=>setTags(search)} className="btn join-item bg-[#0776a6] text-white">Search</button>
+       </div>
+      </div>
+        
+      
+      {loading ? <Loading></Loading>:<div className="grid lg:grid-cols-2 gap-4 w-10/12 md:w-11/12 mx-auto my-10">
         {contests.slice(0, 6).map((item) => <ContestCard key={item?._id} item={item}></ContestCard>)}
       </div>}
     </div>

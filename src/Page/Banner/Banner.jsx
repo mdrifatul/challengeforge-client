@@ -1,25 +1,16 @@
 
-import { useState } from 'react';
-import PopularContest from '../PopularContest/PopularContest';
 const Banner = () => {
-  const [search, setSearch] = useState('');
-  const [tags, setTags] = useState('');
+
+  
   return (
-    <div data-aos="zoom-in-up">
-      <div  className="bg-cover w-full bg-bottom md:bg-center bg-[url('https://i.ibb.co/hW5484t/34378701-v915-wit-011-l.jpg')]">
-      <div className="h-80 md:h-[410px] flex flex-col justify-center">
-        <div className="w-10/12 mx-auto flex justify-center">
-        <h2 className="text-4xl text-[#0776a6] md:text-6xl font-semibold mb-5 w-96 text-center">Contest Time!</h2>
-        </div>
-        <div>
-        <div className="w-10/12 md:w-6/12 join mt-12 flex justify-center mx-auto ">
-          <input onChange={(e) =>setSearch(e.target.value)} className="input input-bordered join-item w-full " placeholder="Find Your Contest"/>
-          <button onClick={()=>setTags(search)} className="btn join-item bg-[#0776a6] text-white">Search</button>
-        </div>
-        </div>
+    <div data-aos="zoom-in-up" className="hero bg-white bg-cover bg-bottom md:bg-tops lg:bg-top bg-[url('../../../dist/assets/worldmap.png')]">
+      <div className="hero-content flex-col lg:flex-row-reverse w-11/12 justify-around my-10">
+      <img src="https://i.ibb.co/0B5HGfv/champion-life-concept.png" className="max-w-sm rounded-lg w-5/6 md:w-full animate-updown" />
+    <div className="md:w-5/6 lg:w-3/6 my-10">
+      <h1 className="text-4xl md:text-5xl font-bold text-[#0776a6]">Rise to the Challenge</h1>
+      <p className="py-6 text-gray-600">Come and unleash your potential with exciting contests and challenges! Join now and compete for amazing prizes and glory. Show your skills, push your limits, and forge your path to victory at ChallengeForge! Your journey to greatness begins here.</p>
+    </div>
       </div>
-      </div>
-      <PopularContest tags={tags}></PopularContest>
     </div>
     
   );
