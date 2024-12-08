@@ -104,7 +104,7 @@ const totalcontest = contest?.total
     <div>
       <div>
         <div className="overflow-x-auto">
-          {loading? <Loading></Loading>:<table className="table table-zebra">
+          {loading? <Loading></Loading>:<table className="table table-zebra lg:mt-0 mt-10">
             <thead>
               <tr>
                 <th></th>

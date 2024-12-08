@@ -7,7 +7,7 @@ const Adminlayout = () => {
     <>
     <li>
     <NavLink to="/dashboard/alluser" className="text-lg text-white">
-    <FaUserCog />
+    <FaUserCog/>
       Manage User</NavLink>
     </li>
     <li>

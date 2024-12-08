@@ -6,18 +6,10 @@ const Advertise = () => {
   return (
     <div data-aos="zoom-in-up">
       <div
-        className="hero min-h-screen w-full"
-        style={{
-          backgroundImage:
-            "url(https://i.ibb.co/QDvrx0f/16738212-SL-012421-39970-08.jpg)",
-        }}
+        className="hero min-h-screen w-full bg-cover bg-[url('https://i.ibb.co/QDvrx0f/16738212-SL-012421-39970-08.jpg')]"
       >
-        <div className="hero-overlay bg-opacity-0 md:flex">
+        <div className="hero-overlay bg-white bg-opacity-80 md:flex">
           <div className="hero-content md:w-1/2 bg-no-repeat bg-center"
-          style={{
-            backgroundImage:
-              "url(https://i.ibb.co/N10VXh3/Animation-1700858668343-1.gif)",
-          }}
           >
             <h1 className="text-2xl md:text-5xl w-10/12 leading-2 text-gray-700"><span className="text-4xl md:text-7xl text-rose-500">B</span>e part of something bigger. Join our contest to not only compete but to connect, learn, and grow alongside fellow enthusiasts.</h1>
           </div>

@@ -3,6 +3,8 @@ import Banner from "../Banner/Banner";
 import Loading from "../Loading/Loading";
 import Advertise from './../Advertise/Advertise';
 import BestCreator from './../BestCreator/BestCreator';
+import Contact from './../Contact/Contact';
+import Faq from './../Faq/Faq';
 import PopularContest from './../PopularContest/PopularContest';
 
 const Home = () => {
@@ -14,6 +16,8 @@ const Home = () => {
       <PopularContest></PopularContest>
       <Advertise></Advertise>
       <BestCreator></BestCreator>
+      <Faq></Faq>
+      <Contact></Contact>
     </div>
   );
 };

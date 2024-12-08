@@ -23,11 +23,12 @@ const BestCreator = () => {
 
   return (
     // <div data-aos="fade-left" className="w-10/12 md:w-11/12 mx-auto my-28">
-      <div data-aos="fade-right" className="mx-auto my-28">
+      <div data-aos="fade-right" className="mx-auto my-16">
       <div className="mb-20">
         <SectionTitle heading="Best Contest Creator"></SectionTitle>
       </div>
       <Swiper
+        key=""
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}

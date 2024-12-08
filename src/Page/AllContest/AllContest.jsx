@@ -7,7 +7,6 @@ const AllContest = () => {
   // const categories = ["business", "medical", "article", "gaming"];
   const [contest, loading] = useContest();
   const allcontest = contest?.result
-  console.log(allcontest);
   const acceptedContest = allcontest.filter((item) => item.status === "accepted")
   const business = acceptedContest.filter((item) => item.tags === "business");
   const medical = acceptedContest.filter((item) => item.tags === "medical");
@@ -21,16 +20,16 @@ const AllContest = () => {
             role="tablist"
             className="flex md:gap-8 capitalize tabs tabs-boxed w-fit mx-auto p-2 "
           >
-            <Tab role="tab" className="tab text-xl text-[#0776a6]">
+            <Tab role="tab" className="tab text-xl px-3 text-[#0776a6]">
               business
             </Tab>
-            <Tab role="tab" className="tab text-xl text-[#0776a6]">
+            <Tab role="tab" className="tab text-xl px-3  text-[#0776a6]">
               medical
             </Tab>
-            <Tab role="tab" className="tab text-xl text-[#0776a6]">
+            <Tab role="tab" className="tab text-xl px-3  text-[#0776a6]">
               article
             </Tab>
-            <Tab role="tab" className="tab text-xl text-[#0776a6]">
+            <Tab role="tab" className="tab text-xl px-3  text-[#0776a6]">
               gaming
             </Tab>
           </TabList>
