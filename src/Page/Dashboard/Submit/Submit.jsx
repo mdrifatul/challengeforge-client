@@ -7,11 +7,6 @@ const Submit = () => {
   const axiosSecure = useAxiosSecure();
   const [submitedCreator, refetch, loading] = useCreatorEmail();
   console.log(submitedCreator);
-  const ContestIds = submitedCreator.filter(
-    (item) => item.contestId
-  );
-
-  console.log(ContestIds);
 
   const handlemakeWinner = (item) => {
     Swal.fire({
@@ -48,77 +43,75 @@ const Submit = () => {
   };
 
   return (
-    <div>
-      <div>
-        <div className="overflow-x-auto">
-          {loading ? (
-            <Loading></Loading>
-          ) : (
-            <table className="table table-zebra">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Task</th>
-                  <th>Winner</th>
-                </tr>
-              </thead>
-              <tbody>
-                {submitedCreator.map((item, index) => (
-                  <tr key={item?._id}>
-                    <td>{index + 1}</td>
-                    <td>{item?.contestName}</td>
-                    <td>{item?.email}</td>
-                    <td>
-                      <button>
-                        <button
-                          className="btn btn-sm bg-rose-100 text-rose-700"
-                          onClick={() =>
-                            document.getElementById("my_modal_3").showModal()
-                          }
-                        >
-                          See Task
-                        </button>
-                        <dialog id="my_modal_3" className="modal">
-                          <div className="modal-box">
-                            <form method="dialog">
-                              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                                ✕
-                              </button>
-                            </form>
-                            <p className="py-4 text-md text-gray-600">
-                              {item?.task}
-                            </p>
-                          </div>
-                        </dialog>
+    <>
+      <div className="overflow-x-auto">
+        {loading ? (
+          <Loading></Loading>
+        ) : (
+          <table className="table table-zebra lg:mt-0 mt-14">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Task</th>
+                <th>Winner</th>
+              </tr>
+            </thead>
+            <tbody>
+              {submitedCreator.map((item, index) => (
+                <tr key={item?._id}>
+                  <td>{index + 1}</td>
+                  <td>{item?.contestName}</td>
+                  <td>{item?.email}</td>
+                  <td>
+                    <button>
+                      <button
+                        className="btn btn-sm bg-rose-100 text-rose-700"
+                        onClick={() =>
+                          document.getElementById("my_modal_3").showModal()
+                        }
+                      >
+                        See Task
                       </button>
-                    </td>
-                    <td>
-                      <div>
-                        {/* {ContestId>1 ? ( */}
-                        {item?.result === "participator" ? (
-                          <button
-                            onClick={() => handlemakeWinner(item)}
-                            className=" text-orange-600 bg-orange-200 p-1 rounded-lg capitalize"
-                          >
-                            participator
-                          </button>
-                        ) : (
-                          <button className="btn btn-sm bg-green-200 text-green-600">
-                            winner
-                          </button>
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
+                      <dialog id="my_modal_3" className="modal">
+                        <div className="modal-box">
+                          <form method="dialog">
+                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                              ✕
+                            </button>
+                          </form>
+                          <p className="py-4 text-md text-gray-600">
+                            {item?.task}
+                          </p>
+                        </div>
+                      </dialog>
+                    </button>
+                  </td>
+                  <td>
+                    <div>
+                      {/* {ContestId>1 ? ( */}
+                      {item?.result === "participator" ? (
+                        <button
+                          onClick={() => handlemakeWinner(item)}
+                          className=" text-orange-600 bg-orange-200 p-1 rounded-lg capitalize"
+                        >
+                          participator
+                        </button>
+                      ) : (
+                        <button className="btn btn-sm bg-green-200 text-green-600">
+                          winner
+                        </button>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
-    </div>
+    </>
   );
 };
 

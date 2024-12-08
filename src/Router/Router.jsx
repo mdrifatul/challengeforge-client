@@ -59,12 +59,13 @@ export const Router = createBrowserRouter([
     children: [
       // user route
       {
+        index: true,
         path: 'participate',
         element: <Participate></Participate>
       },
       {
         path: 'profile',
-        element:<Profile></Profile>
+        element: <Profile></Profile>
       },
       {
         path: 'updateprofile',
@@ -78,6 +79,7 @@ export const Router = createBrowserRouter([
       
       // Creator route
       {
+        index: true,
         path:'addcontest',
         element: <AddContest></AddContest>
       },
@@ -101,6 +103,7 @@ export const Router = createBrowserRouter([
 
       // Admin route
       {
+        index: true,
         path: 'alluser',
         element: <AllUsers></AllUsers>
       },

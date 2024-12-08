@@ -12,8 +12,6 @@ const Profile = () => {
   const [payments] = usePayments();
   const [submited] = useSubmit();
   const winner = submited.filter((item) => item?.result === "winner");
-  console.log(winner.length);
-  console.log(payments.length);
 
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
@@ -53,7 +51,7 @@ const Profile = () => {
           <Loading></Loading>
         ) : (
           <div className="card shadow-xl md:flex-row md:w-2/3 mt-10 mx-auto  bg-teal-400">
-            <figure className="px-10">
+            <figure className="px-10 md:py-0 pt-6">
               <img src={users?.image} alt="Shoes" className="rounded-xl w-32" />
             </figure>
             <div className="card-body">
@@ -81,7 +79,7 @@ const Profile = () => {
         </p>
       </div>
       <div className="-mt-25 mx-auto mb-10">
-        <div className="w-1/2 mx-auto">
+        <div className="md:w-1/2 mx-auto">
             <PieChart width={400} height={260}>
               <Pie
                 data={ChartData}

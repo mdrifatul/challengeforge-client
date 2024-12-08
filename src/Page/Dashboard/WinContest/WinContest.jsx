@@ -3,9 +3,8 @@ import useSubmit from "../../../Hooks/useSubmit";
 const WinContest = () => {
   const [submited] = useSubmit();
   const winner = submited.filter((item) => item?.result === "winner");
-  console.log(winner);
   return (
-    <div className=" w-4/5 mx-auto">
+    <div className=" md:w-4/5 w-full mx-auto">
       <div
         className="hero mt-10"
         style={{
@@ -34,11 +33,6 @@ const WinContest = () => {
         <div className="overflow-x-auto my-10">
           <table className="table">
             <thead>
-              <tr>
-                {/* <th></th> */}
-                {/* <th>Name</th>
-                <th>Job</th> */}
-              </tr>
             </thead>
             <tbody>
               {winner.map((item,index) =>

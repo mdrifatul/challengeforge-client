@@ -13,7 +13,6 @@ const AddContest = () => {
   const axiosPublic = useaxiosPublic()
   const axiosSecure = useAxiosSecure()
   const {user} = useAuth()
-  console.log(user?.email);
 
   const onSubmit = async(data) => {
     const imageFile = {image: data.image[0]}
