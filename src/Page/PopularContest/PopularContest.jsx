@@ -22,21 +22,22 @@ const PopularContest = () => {
   const contests = contest?.result
 
   return (
+    <>
+    {loading ? <Loading></Loading>:
     <div className=" mx-auto">
       <div className="flex justify-center items-center">
-        {/* <div className="md:w-8/12 join mt-12 mx-auto h-20 bg-cover bg-top flex justify-center items-center bg-[url('../../../dist/assets/bgShape.jpg')]"> */}
         <img src="./bgShape1.jpg" className="h-20 lg:w-6/12 md:w-8/12 opacity-50" alt="" />
         <div className="absolute w-10/12 md:w-6/12 join flex justify-center mx-auto ">
           <input onChange={(e) =>setSearch(e.target.value)} className="input input-bordered join-item w-96" placeholder="Find Your Contest"/>
           <button onClick={()=>setTags(search)} className="btn join-item bg-[#0776a6] text-white">Search</button>
        </div>
       </div>
-        
-      
-      {loading ? <Loading></Loading>:<div className="grid lg:grid-cols-2 gap-4 w-10/12 md:w-11/12 mx-auto my-10">
+
+      <div className="grid lg:grid-cols-2 gap-4 w-10/12 md:w-11/12 mx-auto my-10">
         {contests.slice(0, 6).map((item) => <ContestCard key={item?._id} item={item}></ContestCard>)}
-      </div>}
-    </div>
+      </div>
+    </div>}
+    </>
   );
 };
 
