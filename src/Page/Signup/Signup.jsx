@@ -33,7 +33,7 @@ const Signup = () => {
             };
             axiosPublic.post("/users", userInfo)
             .then((res) => {
-              if (res.data.insertedId) {
+              if (res.data) {
                 reset();
                 Swal.fire({
                   position: "top",

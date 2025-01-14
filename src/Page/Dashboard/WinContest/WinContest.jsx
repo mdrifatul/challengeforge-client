@@ -2,6 +2,7 @@ import useSubmit from "../../../Hooks/useSubmit";
 
 const WinContest = () => {
   const [submited] = useSubmit();
+  console.log(submited);
   const winner = submited.filter((item) => item?.result === "winner");
   return (
     <div className=" md:w-4/5 w-full mx-auto">
@@ -39,7 +40,7 @@ const WinContest = () => {
               <tr key={item?._id}>
               <th>{index+1}</th>
               <th className="text-lg text-gray-600">{item?.contestName}</th>
-              <th  className="text-lg text-rose-500">$ {item?.prizemoney}</th>
+              <th className="text-lg text-rose-500">$ {item?.prizemoney}</th>
             </tr>)}
             </tbody>
           </table>

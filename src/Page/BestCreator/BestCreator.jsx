@@ -14,13 +14,13 @@ import SectionTitle from "./../Shared/SectionTitle";
 const BestCreator = () => {
   const axiospublic = useaxiosPublic();
   const { data: creator = [] } = useQuery({
-    queryKey: ["creator"],
+    queryKey: ["Creator"],
     queryFn: async () => {
       const res = await axiospublic.get("/creator");
       return res.data;
     },
   });
-
+  
   return (
     // <div data-aos="fade-left" className="w-10/12 md:w-11/12 mx-auto my-28">
       <div data-aos="fade-right" className="mx-auto my-16">

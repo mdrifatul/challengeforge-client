@@ -7,11 +7,11 @@ export const RoleDashboard = () => {
 
   switch(roles) {
     case 'User':
-      return <Navigate to="/dashboard/participate" replace />;
+      return <Navigate to="participate" replace />;
     case 'Creator':
-      return <Navigate to="/dashboard/addcontest" replace />;
+      return <Navigate to="addcontest" replace />;
     case 'Admin':
-      return <Navigate to="/dashboard/alluser" replace />;
+      return <Navigate to="alluser" replace />;
     default:
       return <Navigate to="/" replace />;
   }

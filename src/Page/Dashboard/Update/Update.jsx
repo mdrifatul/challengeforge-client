@@ -28,13 +28,13 @@ const Update = () => {
   const onSubmit = async(data) => {
 
       const updateField = {
-        name: data.name,
-        deadline: data.deadline,
-        description: data.description,
-        contestprice: parseFloat(data.contestprice),
-        prizemoney: parseFloat(data.prizemoney),
-        tags: data.tags,
-        instruction: data.instruction,
+        name: data?.name,
+        deadline: data?.deadline,
+        description: data?.description,
+        contestprice: parseFloat(data?.contestprice),
+        prizemoney: parseFloat(data?.prizemoney),
+        tags: data?.tags,
+        instruction: data?.instruction,
         status: 'pandig'
       } 
       // console.log(updateField);
