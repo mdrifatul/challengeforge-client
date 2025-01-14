@@ -36,8 +36,7 @@ const UpdateProfile = () => {
       }
       console.log(data);
       const contestPost = await axiosSecure.put(`/users/${role?.email}`, profileupdate)
-      console.log(contestPost.data);
-      if(contestPost.data.modifiedCount){
+      if(contestPost.data){
         Swal.fire({
           position: "top",
           icon: "success",

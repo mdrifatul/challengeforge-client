@@ -57,6 +57,12 @@ export const Router = createBrowserRouter([
     path: '/dashboard',
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
+
+      // {
+      //   index: true,
+      //   element: <RoleDashboard/>
+      // },
+
       // user route
       {
         index: true,

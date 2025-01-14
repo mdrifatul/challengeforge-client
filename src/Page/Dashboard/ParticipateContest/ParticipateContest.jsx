@@ -11,7 +11,6 @@ const ParticipateContest = () => {
   const {user} = useAuth();
   const axiosSecure = useAxiosSecure()
   const {id} = useParams();
-  console.log(id);
 
   const {data: participate=[]} = useQuery({
       queryKey: ['participate'], 
@@ -29,7 +28,7 @@ const ParticipateContest = () => {
 
   const onSubmit = (data) =>{
     const task = {
-      ...data, 
+      task: data.task,
       username: user?.displayName,
       email: user?.email,
       creatorEmail:participate?.creatorEmail,
@@ -42,7 +41,7 @@ const ParticipateContest = () => {
     axiosSecure.post('/submitted',task)
     .then(res => {
       console.log(res.data)
-      if(res.data.insertedId){
+      if(res.data){
         reset();
         Swal.fire({
           position: "top",

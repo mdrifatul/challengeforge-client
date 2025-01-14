@@ -31,7 +31,7 @@ const AllUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/users/${user?._id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
+          if (res.data > 0) {
             refetch();
             Swal.fire({
               title: "Deleted!",
@@ -51,7 +51,7 @@ const AllUsers = () => {
       role : role
     }
     axiosSecure.put(`/users/${user?.email}`,userrole).then((res) => {
-      if (res.data.modifiedCount > 0) {
+      if (res.data > 0) {
         refetch();
         Swal.fire({
           position: "top",
