@@ -1,13 +1,14 @@
+
 const Banner = () => {
   return (
     <div data-aos="zoom-in-up" className="hero">
-      <div className="hero-content flex-col lg:flex-row-reverse w-11/12 justify-around ">
+      <div className="hero-content flex-col lg:flex-row-reverse w-11/12 justify-around lg:h-screen lg:-mt-10">
         <img
           src="./champion-life.webp"
           loading="lazy"
           className="max-w-sm rounded-lg w-5/6 md:w-full animate-updown"
         />
-        <div className="md:w-5/6 lg:w-3/6">
+        <div className="md:w-5/6 lg:w-3/6 ">
           <h1 className="text-4xl md:text-5xl font-bold text-[#0776a6]">
             Rise to the Challenge
           </h1>

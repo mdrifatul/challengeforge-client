@@ -26,9 +26,9 @@ const PopularContest = () => {
     {loading ? <Loading></Loading>:
     <div className=" mx-auto">
       <div className="flex justify-center items-center">
-        <img src="./bgShape1.jpg" className="h-20 lg:w-6/12 md:w-8/12 opacity-50" alt="" />
-        <div className="absolute w-10/12 md:w-6/12 join flex justify-center mx-auto ">
-          <input onChange={(e) =>setSearch(e.target.value)} className="input input-bordered join-item w-96" placeholder="Find Your Contest"/>
+        <img src="./bgShape1.webp" className="h-20 lg:w-6/12 md:w-8/12 opacity-50" alt="" />
+        <div className="absolute w-10/12 md:w-6/12 join flex justify-center mx-auto">
+          <input onChange={(e) =>setSearch(e.target.value)} className="input input-bordered join-item w-96 border-[#0776a6]" placeholder="Find Your Contest"/>
           <button onClick={()=>setTags(search)} className="btn join-item bg-[#0776a6] text-white">Search</button>
        </div>
       </div>

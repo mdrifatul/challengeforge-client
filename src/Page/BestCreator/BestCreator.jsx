@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import useaxiosPublic from "./../../Hooks/useaxiosPublic";
 import SectionTitle from "./../Shared/SectionTitle";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
