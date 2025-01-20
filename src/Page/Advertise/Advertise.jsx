@@ -1,6 +1,6 @@
-import winner1 from "./../../assets/winner1.jpg";
-import winner2 from "./../../assets/winner2.jpg";
-import winner3 from "./../../assets/winner3.jpg";
+import winner1 from "./../../assets/winner1.webp";
+import winner2 from "./../../assets/winner2.webp";
+import winner3 from "./../../assets/winner3.webp";
 
 const Advertise = () => {
   return (

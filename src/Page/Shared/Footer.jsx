@@ -1,6 +1,6 @@
 
 import { BsFacebook, BsTwitter, BsYoutube } from 'react-icons/bs';
-import logo from '../../assets/icon.png';
+import logo from '../../assets/icon.webp';
 
 
 const Footer = () => {

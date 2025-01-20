@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import logo from "../../assets/icon.png";
-import userPicture from '../../assets/user.png';
+import logo from "../../assets/icon.webp";
+import userPicture from '../../assets/user.webp';
 
 const activeLink = "text-[#0787be] px-2 font-bold border-b-2 border-[#0787be]";
 const normalLink = "text-gray-800";
