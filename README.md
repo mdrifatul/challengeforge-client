@@ -18,6 +18,20 @@
 
 <br/>
 
+## Demo Accounts
+
+### Admin
+
+| Email | Password |
+|--------|----------|
+| `forge@admin.com` | `Forge$12` |
+
+### Organizer
+
+| Email | Password |
+|--------|----------|
+| `forge@organizer.com` | `Forge$12` |
+
 ## ✨ Features
 
 ### 🏠 Public Pages
