@@ -25,7 +25,7 @@ const AllUsers = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#0776a6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
@@ -45,7 +45,6 @@ const AllUsers = () => {
     });
   };
 
-
   const handleUpdaterole = (role,user) => {
     const userrole = {
       role : role
@@ -64,53 +63,76 @@ const AllUsers = () => {
     });
   }
 
-
   return (
-    <div>
-      <div className="flex justify-evenly my-4">
-        <h2 className="text-3xl text-[#0776a6]">All Users</h2>
+    <div className="w-full max-w-6xl mx-auto py-10">
+      <div className="flex justify-between items-center mb-8 px-4">
+        <div>
+          <h2 className="text-3xl font-extrabold text-gray-800">User Management</h2>
+          <p className="text-gray-500 mt-1">Manage user roles and permissions</p>
+        </div>
+        <div className="bg-[#0776a6]/10 text-[#0776a6] px-4 py-2 rounded-lg font-bold">
+          Total: {users.length}
+        </div>
       </div>
-      <div>
-        {loading? <Loading></Loading>:<div className="overflow-x-auto">
-          <table className="table table-zebra">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>update Role</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-              users.map( (user,index) =>(
-              <tr key={user?._id}>
-                <th>{index + 1}</th>
-                <td>{user?.name}</td>
-                <td>{user?.email}</td>
-                <td>{user?.role}</td>
-                <td>
-                  <select onChange={(e)=>handleUpdaterole(e.target.value,user)}  className="select w-fit">
-                    <option disabled selected>Change</option>
-                    <option value='User'>User</option>
-                    <option value='Creator'>Creator</option>
-                    <option value='Admin'>Admin</option>
-                  </select>
-                </td>
-                <td>
-                  <button
-                    onClick={() => handleDelete(user)}
-                    className="btn btn-ghost text-base  text-red-600 "
-                  >
-                    <FaTrash />
-                  </button>
-                </td>
-              </tr>))}
-            </tbody>
-          </table>
-        </div>}
+
+      <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+        {loading ? (
+          <div className="p-10"><Loading /></div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-100">
+                  <th className="py-4 px-6 text-sm font-bold text-gray-600 uppercase tracking-wider">#</th>
+                  <th className="py-4 px-6 text-sm font-bold text-gray-600 uppercase tracking-wider">Name</th>
+                  <th className="py-4 px-6 text-sm font-bold text-gray-600 uppercase tracking-wider">Email</th>
+                  <th className="py-4 px-6 text-sm font-bold text-gray-600 uppercase tracking-wider">Role</th>
+                  <th className="py-4 px-6 text-sm font-bold text-gray-600 uppercase tracking-wider">Update Role</th>
+                  <th className="py-4 px-6 text-sm font-bold text-gray-600 uppercase tracking-wider text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {users.map((user, index) => (
+                  <tr key={user?._id} className="hover:bg-gray-50/50 transition-colors">
+                    <td className="py-4 px-6 text-gray-500 font-medium">{index + 1}</td>
+                    <td className="py-4 px-6 text-gray-800 font-bold">{user?.name}</td>
+                    <td className="py-4 px-6 text-gray-500">{user?.email}</td>
+                    <td className="py-4 px-6">
+                      <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                        user?.role === 'Admin' ? 'bg-red-100 text-red-700' :
+                        user?.role === 'Creator' ? 'bg-blue-100 text-blue-700' :
+                        'bg-gray-100 text-gray-700'
+                      }`}>
+                        {user?.role}
+                      </span>
+                    </td>
+                    <td className="py-4 px-6">
+                      <select 
+                        onChange={(e)=>handleUpdaterole(e.target.value,user)} 
+                        className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#0776a6] focus:border-[#0776a6] block p-2"
+                        defaultValue="Change"
+                      >
+                        <option disabled value="Change">Change</option>
+                        <option value='User'>User</option>
+                        <option value='Creator'>Creator</option>
+                        <option value='Admin'>Admin</option>
+                      </select>
+                    </td>
+                    <td className="py-4 px-6 text-center">
+                      <button
+                        onClick={() => handleDelete(user)}
+                        className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors"
+                        title="Delete User"
+                      >
+                        <FaTrash />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </div>
   );
