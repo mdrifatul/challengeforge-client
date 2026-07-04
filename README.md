@@ -6,7 +6,7 @@
 
 ## 🌐 Live Demo
 
-**[challengeforge.web.app]([https://challengeforge-7ce2b.web.app/])**
+**[challengeforge.web.app](https://challengeforge-7ce2b.web.app/)**
 
 <br/>
 
