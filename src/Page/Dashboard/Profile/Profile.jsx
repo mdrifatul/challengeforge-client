@@ -45,61 +45,63 @@ const Profile = () => {
   ];
 
   return (
-    <div>
-      <div>
-        {isLoading ? (
-          <Loading></Loading>
-        ) : (
-          <div className="card shadow-xl md:flex-row md:w-2/3 mt-10 mx-auto  bg-teal-400">
-            <figure className="px-10 md:py-0 pt-6">
-              <img src={users?.image} alt="Shoes" className="rounded-xl w-32" />
-            </figure>
-            <div className="card-body">
-              <div>
-                <h1 className="text-2xl font-bold text-white">{users.name}</h1>
-                <p className="text-white">{users?.email}</p>
-              </div>
-              <div className="">
-                <p className="text-md uppercase bg-orange-400 w-fit px-2 py-1 rounded-full mb-3 text-white">
+    <div className="w-full max-w-4xl mx-auto py-10">
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 mb-12">
+          <div className="h-32 bg-[#0776a6]"></div>
+          
+          <div className="px-8 pb-8 flex flex-col md:flex-row gap-6 relative">
+            <div className="-mt-16 w-32 h-32 rounded-2xl border-4 border-white shadow-lg overflow-hidden bg-white shrink-0 mx-auto md:mx-0">
+              <img src={users?.image} alt={users?.name} className="w-full h-full object-cover" />
+            </div>
+            
+            <div className="flex-1 text-center md:text-left mt-4 md:mt-2">
+              <h1 className="text-3xl font-extrabold text-gray-800 mb-1">{users?.name}</h1>
+              <p className="text-gray-500 font-medium mb-4">{users?.email}</p>
+              
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                <span className="px-4 py-1.5 bg-[#0776a6]/10 text-[#0776a6] font-bold text-sm tracking-widest uppercase rounded-full border border-[#0776a6]/20">
                   {users?.role}
-                </p>
+                </span>
+                
                 <Link to="/dashboard/updateprofile">
-                  <button className="btn btn-sm rounded-full text-white bg-green-700">
-                    Update Profile
+                  <button className="px-5 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-full transition-colors text-sm border border-gray-200">
+                    Edit Profile
                   </button>
                 </Link>
               </div>
             </div>
           </div>
-        )}
-      </div>
-      <div>
-        <p className="text-3xl text-center mt-10 text-[#0776a6] font-bold">
-          Wining Percentage
-        </p>
-      </div>
-      <div className="-mt-25 mx-auto mb-10">
-        <div className="md:w-1/2 mx-auto">
-            <PieChart width={400} height={260}>
-              <Pie
-                data={ChartData}
-                cx="50%"
-                cy="60%"
-                labelLine={false}
-                label={renderCustomizedLabel}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-              >
-                {ChartData.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Legend></Legend>
-            </PieChart>
+        </div>
+      )}
+
+      <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 flex flex-col items-center">
+        <h2 className="text-2xl font-extrabold text-gray-800 mb-8 border-b-2 border-[#0776a6] pb-2 inline-block">
+          Winning Statistics
+        </h2>
+        <div className="flex justify-center w-full">
+          <PieChart width={400} height={260}>
+            <Pie
+              data={ChartData}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={100}
+              fill="#8884d8"
+              dataKey="value"
+            >
+              {ChartData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+            <Legend />
+          </PieChart>
         </div>
       </div>
     </div>
