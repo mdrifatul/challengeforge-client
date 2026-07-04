@@ -24,17 +24,18 @@ const PopularContest = () => {
   return (
     <>
     {loading ? <Loading></Loading>:
-    <div className=" mx-auto">
-      <div className="flex justify-center items-center">
-        <img src="./bgShape1.webp" className="h-20 lg:w-6/12 md:w-8/12 opacity-50" alt="" />
-        <div className="absolute w-10/12 md:w-6/12 join flex justify-center mx-auto">
-          <input onChange={(e) =>setSearch(e.target.value)} className="input input-bordered join-item w-96 border-[#0776a6]" placeholder="Find Your Contest"/>
-          <button onClick={()=>setTags(search)} className="btn join-item bg-[#0776a6] text-white">Search</button>
+    <div className="w-full max-w-7xl mx-auto px-4 my-16">
+      <div className="flex flex-col justify-center items-center gap-6 mb-16 text-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">Explore <span className="text-[#0776a6]">Popular Contests</span></h2>
+        <p className="text-gray-500 max-w-2xl text-lg">Discover the most attempted challenges and join the competition to prove your skills.</p>
+        <div className="join w-full max-w-md shadow-md rounded-lg mt-4">
+          <input onChange={(e) =>setSearch(e.target.value)} className="input input-bordered join-item w-full bg-gray-50 focus:outline-none focus:border-[#0776a6]" placeholder="Find Your Contest"/>
+          <button onClick={()=>setTags(search)} className="btn join-item bg-[#0776a6] hover:bg-[#055b82] text-white border-none px-8">Search</button>
        </div>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-4 w-10/12 md:w-11/12 mx-auto my-10">
-        {contests.slice(0, 6).map((item) => <ContestCard key={item?._id} item={item}></ContestCard>)}
+      <div className="grid md:grid-cols-2 gap-8">
+        {contests?.slice(0, 6).map((item) => <ContestCard key={item?._id} item={item}></ContestCard>)}
       </div>
     </div>}
     </>

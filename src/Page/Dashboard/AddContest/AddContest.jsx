@@ -34,7 +34,6 @@ const AddContest = () => {
         email: user?.email,
         status: 'panding' 
       } 
-      // console.log(contestField);
       const contestPost = await axiosSecure.post('/contest', contestField)
       console.log(contestPost.data);
       if(contestPost.data){

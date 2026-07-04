@@ -69,8 +69,6 @@ const CheckoutForm = () => {
       console.log("payment method", paymentMethod);
       setError("");
     }
-
-    // confirm payment
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -87,8 +85,6 @@ const CheckoutForm = () => {
     } else {
       if (paymentIntent.status === "succeeded") {
         setTransactionId(paymentIntent.id);
-
-        // now save the payment in the database
         const payment = {
           name: user?.displayName, 
           userEmail: user.email,
@@ -123,33 +119,77 @@ const CheckoutForm = () => {
 
 
   return (
-    <div className="w-11/12 md:w-1/2 mx-auto my-24">
-      {loading? <Loading></Loading>:<form onSubmit={handleSubmit} className="paymentCard">
-        <CardElement
-          className="paymentCard"
-          options={{
-            style: {
-              base: {
-                fontSize: "18px",  
-                padding: "10px 14px",
-                "::placeholder": {
-                  color: "#aab7c4",
-                },
-              },
-              invalid: {
-                color: "#9e2146",
-              },
-            },
-          }}
-        />
-        <div  className="text-center">
-        <button type="submit" className="btn btn-sm bg-[#299fd2]  text-white mt-10 w-40" disabled={!stripe || !clientSecret}>
-          Pay
-        </button>
+    <div className="w-full max-w-5xl mx-auto px-4 my-20">
+      {loading ? (
+        <Loading></Loading>
+      ) : (
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col md:flex-row">
+          <div className="md:w-5/12 bg-gray-50 p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Order Summary</h2>
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-4">
+                <img src={image} alt={name} className="w-20 h-20 rounded-xl object-cover shadow-sm" />
+                <div>
+                  <h3 className="font-bold text-gray-800 text-lg leading-tight">{name}</h3>
+                  <p className="text-sm text-gray-500 mt-1">Registration Fee</p>
+                </div>
+              </div>
+              <div className="border-t border-gray-200 pt-6">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-gray-600">Subtotal</span>
+                  <span className="font-semibold text-gray-800">${contestprice}</span>
+                </div>
+                <div className="flex justify-between items-center text-lg font-bold">
+                  <span className="text-gray-800">Total</span>
+                  <span className="text-[#0776a6]">${contestprice}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="md:w-7/12 p-8 md:p-12">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Payment Details</h2>
+            <p className="text-gray-500 mb-8 text-sm">Complete your registration by providing your payment details.</p>
+            
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <div className="p-4 border border-gray-200 rounded-xl bg-gray-50/50 shadow-inner">
+                <CardElement
+                  options={{
+                    style: {
+                      base: {
+                        fontSize: "16px",
+                        color: "#424770",
+                        "::placeholder": {
+                          color: "#aab7c4",
+                        },
+                      },
+                      invalid: {
+                        color: "#9e2146",
+                      },
+                    },
+                  }}
+                />
+              </div>
+              
+              <button 
+                type="submit" 
+                className="w-full py-2 bg-[#0776a6] hover:bg-[#055b82] disabled:bg-gray-300 disabled:transform-none disabled:shadow-none text-white text-lg font-semibold rounded-md shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1" 
+                disabled={!stripe || !clientSecret}
+              >
+                Pay ${contestprice}
+              </button>
+              
+              {error && <p className="text-red-500 text-sm font-medium text-center">{error}</p>}
+              {transactionId && (
+                <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mt-4 text-center">
+                  <p className="font-semibold">Payment Successful!</p>
+                  <p className="text-sm font-mono mt-1">TxID: {transactionId}</p>
+                </div>
+              )}
+            </form>
+          </div>
         </div>
-        <p className="text-red-600">{error}</p>
-        {transactionId && <p className="text-white p-2 bg-green-600 rounded-xl mt-10 w-fit mx-auto"> Your transaction id: {transactionId}</p>}
-      </form>}
+      )}
     </div>
   );
 };

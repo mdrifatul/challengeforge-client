@@ -13,9 +13,6 @@ const UpdateProfile = () => {
   const axiosPublic = useaxiosPublic();
   const axiosSecure = useAxiosSecure()
 
-  // const {name,email,} = role
-  // console.log(name,image);
-
   const {
     register,
     handleSubmit,

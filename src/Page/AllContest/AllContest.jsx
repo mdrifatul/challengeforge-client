@@ -4,7 +4,6 @@ import useContest from "./../../Hooks/useContest";
 import ContestTabs from "./ContestTabs";
 
 const AllContest = () => {
-  // const categories = ["business", "medical", "article", "gaming"];
   const [contest, loading] = useContest();
   const allcontest = contest?.result
   const acceptedContest = allcontest.filter((item) => item.status === "accepted")

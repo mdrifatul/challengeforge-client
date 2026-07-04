@@ -7,7 +7,6 @@ import useaxiosPublic from '../../../Hooks/useaxiosPublic';
 import Loading from './../../Loading/Loading';
 
 const ManageContent = () => {
-  // const [contest, loading, refetch]= useContest();
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useaxiosPublic();
   const [page, setPage] = useState(1)

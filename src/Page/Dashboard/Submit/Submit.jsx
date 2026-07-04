@@ -90,7 +90,7 @@ const Submit = () => {
                   </td>
                   <td>
                     <div>
-                      {/* {ContestId>1 ? ( */}
+                      
                       {item?.result === "participator" ? (
                         <button
                           onClick={() => handlemakeWinner(item)}

@@ -99,7 +99,7 @@ const Navbar = () => {
             <div className="dropdown dropdown-end flex">
               <label tabIndex={0} className="mr-2">
               <div className="w-8 rounded-full mx-auto md:mx-2 ">
-                <img className="rounded-full" src={user.photoURL || userPicture} />
+                <img className="rounded-full cursor-pointer" src={user.photoURL || userPicture} />
               </div>
             </label>
             <div

@@ -37,9 +37,7 @@ const Update = () => {
         instruction: data?.instruction,
         status: 'pandig'
       } 
-      // console.log(updateField);
       const contestPost = await axiosSecure.patch(`/contest/${id}`, updateField)
-      // console.log(contestPost.data);
       if(contestPost.data){
         Swal.fire({
           position: "top",
@@ -126,14 +124,7 @@ const Update = () => {
                 defaultValue={instruction}
               />
             </div>
-            {/* <div className="form-control">
-              <input
-                type="file"
-                {...register("image")}
-                className="file-input file-input-bordered w-full max-w-xs"
-                placeholder="ImageURL"
-              />
-            </div>       */}
+            
           </div>
           <div className="form-control mt-6">
             <input
