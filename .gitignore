@@ -15,7 +15,6 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 .agents/*
-.firebase/*
 .skills-lock/*
 !.vscode/extensions.json
 .idea
