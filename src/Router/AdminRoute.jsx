@@ -1,10 +1,11 @@
 import { Navigate, useLocation } from "react-router-dom";
+import useAdmin from "../Hooks/useAdmin";
 import useAuth from "../Hooks/useAuth";
 import Loading from './../Page/Loading/Loading';
 
 const AdminRoute = ({children}) => {
   const {user, loading} = useAuth();
-  // const [isAdmin, isAdminLoading] = useAdmin();
+  const [isAdmin, isAdminLoading] = useAdmin();
   const location = useLocation();
 
   if(loading || isAdminLoading) {

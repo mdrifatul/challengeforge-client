@@ -57,13 +57,6 @@ export const Router = createBrowserRouter([
     path: '/dashboard',
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
-
-      // {
-      //   index: true,
-      //   element: <RoleDashboard/>
-      // },
-
-      // user route
       {
         index: true,
         path: 'participate',
@@ -81,9 +74,6 @@ export const Router = createBrowserRouter([
         path: 'wincontest',
         element: <WinContest></WinContest>
       },
-
-      
-      // Creator route
       {
         index: true,
         path:'addcontest',
@@ -105,9 +95,6 @@ export const Router = createBrowserRouter([
         path:'participatecontest/:id',
         element: <ParticipateContest></ParticipateContest>
       },
-     
-
-      // Admin route
       {
         index: true,
         path: 'alluser',
