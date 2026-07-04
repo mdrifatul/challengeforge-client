@@ -10,19 +10,6 @@
 
 <br/>
 
-## 📌 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Environment Variables](#environment-variables)
-- [Project Structure](#project-structure)
-- [User Roles](#user-roles)
-- [Screenshots](#screenshots)
-
-<br/>
-
 ## 🧩 Overview
 
 **ChallengeForge** is a contest management web application that supports three distinct user roles — **User**, **Creator**, and **Admin**. Users can browse and participate in contests, Creators can publish their own challenges, and Admins manage the entire platform. The platform includes a secure payment gateway (Stripe), a real-time dashboard, and an intelligent winner-tracking system.
