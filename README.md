@@ -8,6 +8,8 @@
 
 **[challengeforge.web.app](https://challengeforge-7ce2b.web.app/)**
 
+- **Backend API**: [challengeforge-server](https://github.com/your-username/challengeforge-server) — Node.js + Express + MongoDB
+
 <br/>
 
 ## 🧩 Overview
@@ -197,12 +199,6 @@ challengeforge-client/
 | **User**    | Browse contests, pay to participate, view won contests, update profile                        |
 | **Creator** | All User permissions + create contests, manage own contests, pick winners from submissions    |
 | **Admin**   | All permissions + manage all users (change roles, delete), approve/reject contest submissions |
-
-<br/>
-
-## 🔗 Related Repository
-
-- **Backend API**: [challengeforge-server](https://github.com/your-username/challengeforge-server) — Node.js + Express + MongoDB
 
 <br/>
 
